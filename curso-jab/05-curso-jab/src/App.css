@@ -1,0 +1,47 @@
+.reyes{
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 2px 15px 20px;
+  margin-bottom: 10px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+img {
+  width: 100%;
+}
+
+.caja{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.act2-caja{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  font-size: 2em;
+}
+
+.act3-caja{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  font-size: 2em;
+}
+
+.act4-caja{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  font-size: 2em;
+}
+
+.numero{
+  user-select: none;
+  font-size: 2em;
+}

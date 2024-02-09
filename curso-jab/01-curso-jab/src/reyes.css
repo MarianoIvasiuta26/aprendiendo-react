@@ -1,0 +1,32 @@
+.rey1{
+    background-color: orange;
+    border-radius: 5%;
+    color: black;
+    margin-right: 20px;
+    padding: 10px;
+    width: 400px;
+    height: 450px;
+}
+
+.rey2{
+    background-color: orange;
+    border-radius: 5%;
+    color: black;
+    margin-right: 20px;
+    padding: 10px;
+    width: 400px;
+    height: 450px;
+}
+
+.rey3{
+    background-color: orange;
+    border-radius: 5%;
+    color: black;
+    padding: 10px;
+    width: 400px;
+    height: 450px;
+}
+
+p{
+    user-select: none;
+}

@@ -1,0 +1,74 @@
+
+
+.banderas{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.botones{
+    text-align: center;
+    margin: 10px;
+}
+
+.botones button{
+    margin-right: 5px;
+}
+
+.bandera img{
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.profesora {
+    background-color: rgb(5, 110, 124);
+    width: 400px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+}
+
+.lugar {
+    background-color: rgb(5, 110, 124);
+    width: 400px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+}
+
+.caja-profesora{
+    display: flex;
+    justify-content: center;
+}
+
+.caja-lugar{
+    display: flex;
+    justify-content: center;
+}
+
+.profesora h1 {
+    font-size: 30px;
+    margin-bottom: 0; /* Elimina el margen inferior del h1 */
+}
+
+.lugar h1 {
+    font-size: 30px;
+    margin-bottom: 0; /* Elimina el margen inferior del h1 */
+}
+
+.nombre p {
+    font-size: 20px;
+}
+
+.direccion p {
+    font-size: 15px;
+}
+
+.foto img {
+    width: 200px;
+    margin-top: 10px;
+}

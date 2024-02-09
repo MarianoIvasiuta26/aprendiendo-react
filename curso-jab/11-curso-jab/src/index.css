@@ -1,0 +1,170 @@
+.content-form-description{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.content-form-description button{
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background-color: #64a2be;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.content-form-description button:hover{
+  background-color: #2e5b70;
+}
+
+.aviso{
+  height: 20px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.zonas-caja{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.descripcion{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(49, 49, 49);
+  color: white;
+}
+
+input[type="radio"] {
+  width: 30px;
+  height: 30px; 
+  margin-top: 10px;
+}
+
+input[type="radio"]:hover{
+  cursor: pointer;
+}
+
+.lugar-nombre{
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.lugar-precio{
+  font-size: 16px;
+  margin-top: 0;
+  text-align: center;
+}
+
+/*Form 2*/
+
+.form2{
+  display: flex;
+}
+
+.form2-container{
+  width: 70%;
+}
+
+.preguntas-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.preguntas-container input{
+  width: 25%;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 18px;
+  border: 1px solid gray;
+}
+
+.pregunta{
+  font-size: 1.5em;
+}
+
+.form2-container button{
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background-color: #0c72a1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.resumen{
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid gray;
+}
+
+.resumen img{
+  width: 80%;
+
+}
+
+.resumen-text{
+  font-size: 1.5em;
+}
+
+.linea{
+  display: flex;
+}
+
+.columna1{
+  width: 130px;
+}
+
+.columna2{
+  flex:1;
+}
+
+.aviso-form2{
+  color: grey;
+  padding: 10px 0;
+}
+
+.consigna{
+  display: flex;
+}
+
+.sufijo{
+  margin-left: 10px;
+  padding: 3px 0;
+  color: green;
+  font-size: 1.2em;
+}
+
+.group-buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.group-buttons button{
+  background-color: rgb(37, 149, 177);
+}

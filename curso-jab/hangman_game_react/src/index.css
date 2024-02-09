@@ -1,0 +1,69 @@
+.body{
+  font-family: Arial, sans-serif;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.pregunta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  font-size: 1.2em;
+  color: rgb(71, 68, 68);
+}
+
+.palabraFormada{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.caracterIndividual{
+  border-bottom: 3px solid #000;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+
+}
+
+.letras{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.letraIndividual{
+  border: 1px solid #000;
+  border-style: dashed;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.letraIndividual:hover{
+  cursor: pointer;
+  background-color: rgb(224, 224, 224);
+  user-select: none;
+}
+
+.imagenes img{
+  padding: 20px;
+  width: 150px;
+  height: 300px;
+}
