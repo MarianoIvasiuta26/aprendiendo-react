@@ -4,12 +4,16 @@ import PalabrasContext from '../context/PalabrasContext';
 import { useNavigate } from 'react-router-dom';
 
 const MensajeGano = () => {
-    const {nivel, setNivel} = useContext(PalabrasContext);
+    const {setResultado, nivel, setNivel, intento, setIntento, setLetrasPalabras, setLetrasIncorrectas} = useContext(PalabrasContext);
     const palabraActual = palabras.find((pregunta, index) => index === nivel);
     const navegacion = useNavigate();
 
     const avanzar = () => {
         if(nivel < 9){
+            setResultado("")
+            setIntento(1)
+            setLetrasPalabras([])
+            setLetrasIncorrectas([])
             setNivel(Number(nivel + 1));
             navegacion('/');
         }

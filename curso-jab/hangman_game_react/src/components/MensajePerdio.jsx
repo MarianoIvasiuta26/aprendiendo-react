@@ -6,12 +6,17 @@ import { useNavigate } from 'react-router-dom';
 
 const MensajePerdio = () => {
 
-    const {nivel} = useContext(PalabrasContext);
+    const {setResultado, nivel, setNivel, setIntento, setLetrasPalabras, setLetrasIncorrectas} = useContext(PalabrasContext);
     const palabraActual = palabras.find((pregunta, index) => index === nivel);
     const caracteresActual = palabraActual.palabro.split("");
     const navegacion = useNavigate();
 
     const reiniciar = () => {
+        setResultado("")
+        setNivel(nivel)
+        setIntento(1)
+        setLetrasPalabras([])
+        setLetrasIncorrectas([])
         navegacion('/')
     }
 

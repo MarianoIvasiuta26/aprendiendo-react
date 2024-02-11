@@ -11,16 +11,27 @@ import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
 
-    const {resultado, setResultado, nivel, setNivel} = useContext(PalabrasContext);
+    const {resultado, setResultado, nivel, setNivel, intento, setIntento, letrasPalabra, setLetrasPalabras, letrasIncorrectas, setLetrasIncorrectas} = useContext(PalabrasContext);
+
     const palabraActual = palabras.find((pregunta, index) => index === nivel);
-    const [intento, setIntento] = useState(1);
-    const [letrasPalabra, setLetrasPalabras] = useState([]);
-    const [letrasIncorrectas, setLetrasIncorrectas] = useState([]);
+   
     const navegacion = useNavigate();
 
     useEffect(() => {
         validarGanador();
+        console.log(letrasPalabra);
     }, [letrasPalabra]);
+
+    useEffect(() => {
+        console.log(resultado);
+        mostrarMensaje();
+    }, [resultado]);
+
+    useEffect(() => {
+        if(resultado === 'Perdió'){
+            navegacion('/perdio');
+        }
+    }, [resultado]);
     
     const caracteresActual = palabraActual.palabro.split("");
     console.log(caracteresActual)
@@ -56,8 +67,11 @@ const Index = () => {
         caracterElegido = caracteresActual.find(elemento => elemento === letra);
         
         if(caracterElegido && !letrasPalabra.includes(caracterElegido)){
-            setLetrasPalabras(letrasPrevias => [...letrasPrevias, caracterElegido]);
-            validarGanador();     
+            if (caracterElegido && !letrasPalabra.includes(caracterElegido)) {
+                const vecesRepetida = caracteresActual.filter(c => c === caracterElegido).length;
+        
+                setLetrasPalabras(letrasPrevias => [...letrasPrevias, ...Array(vecesRepetida).fill(caracterElegido)]);
+            }
         }
 
         if(!caracterElegido){
@@ -67,7 +81,6 @@ const Index = () => {
                     setIntento(Number(intento + 1));
                 }else{
                     setResultado('Perdió');
-                    mostrarMensaje();
                 }
             }
         }
@@ -76,19 +89,18 @@ const Index = () => {
     
 
     const validarGanador = () => {
+        console.log(letrasPalabra.length)
+        console.log(letrasPalabra.length === caracteresActual.length);
         if(letrasPalabra.length === caracteresActual.length){
-            setResultado('Ganó')
-            mostrarMensaje();
+            console.log("entra")
+            setResultado("Ganó")
         }
     }
 
     const mostrarMensaje = () => {
-        if(resultado == 'Ganó'){
+        if(resultado === 'Ganó'){
             navegacion('/gano')
-        } else if (resultado == 'Perdió'){
-            navegacion('/perdio')
-        }
-        
+        } 
     }
 
     return (
@@ -101,8 +113,8 @@ const Index = () => {
                 <div className='palabraFormada'>
                     {caracteresActual.map((caracter, index) => (
                         <div id={`caracter${index}`} className='caracterIndividual' key={index}>
-                            {letrasPalabra.map((letra, e) => (
-                                letra === caracter ? <span key={e}>{letra}</span> : ''
+                            {letrasPalabra.find((letra, e) => (
+                                letra === caracter ? <span key={e}>{caracter}</span> : ''
                             ))}
                         </div>
                     ))}
