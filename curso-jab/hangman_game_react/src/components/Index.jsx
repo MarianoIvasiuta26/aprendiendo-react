@@ -16,8 +16,11 @@ const Index = () => {
     const [intento, setIntento] = useState(1);
     const [letrasPalabra, setLetrasPalabras] = useState([]);
     const [letrasIncorrectas, setLetrasIncorrectas] = useState([]);
-    console.log(letrasIncorrectas)
-    console.log(letrasPalabra)
+    const navegacion = useNavigate();
+
+    useEffect(() => {
+        validarGanador();
+    }, [letrasPalabra]);
     
     const caracteresActual = palabraActual.palabro.split("");
     console.log(caracteresActual)
@@ -48,14 +51,13 @@ const Index = () => {
             break;
     }
 
-    let palabraFormada = [];
     const validarIntento = (letra) => {
         let caracterElegido; 
         caracterElegido = caracteresActual.find(elemento => elemento === letra);
         
         if(caracterElegido && !letrasPalabra.includes(caracterElegido)){
             setLetrasPalabras(letrasPrevias => [...letrasPrevias, caracterElegido]);
-            validarPalabraFormada();            
+            validarGanador();     
         }
 
         if(!caracterElegido){
@@ -65,34 +67,28 @@ const Index = () => {
                     setIntento(Number(intento + 1));
                 }else{
                     setResultado('Perdió');
+                    mostrarMensaje();
                 }
             }
         }
     }
 
-    const validarPalabraFormada = () =>{
-        caracteresActual.map((caracter, index) => {
-            letrasPalabra.map((letra, e) =>{
-                if(letra === caracter){
-                    palabraFormada.push(letra);
-                }
-            })
-        })
-
-        validarGanador();
-    }
-
-    const navegacion = useNavigate();
+    
 
     const validarGanador = () => {
-        if(palabraFormada.length === caracteresActual.length){
+        if(letrasPalabra.length === caracteresActual.length){
             setResultado('Ganó')
             mostrarMensaje();
         }
     }
 
     const mostrarMensaje = () => {
-        navegacion('/gano')
+        if(resultado == 'Ganó'){
+            navegacion('/gano')
+        } else if (resultado == 'Perdió'){
+            navegacion('/perdio')
+        }
+        
     }
 
     return (

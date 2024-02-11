@@ -67,3 +67,42 @@
   width: 150px;
   height: 300px;
 }
+
+
+.mensaje{
+  font-size: 2em;
+  padding: 10px;
+}
+
+.correccion{
+  font: 1.2em sans-serif;
+  padding: 10px;
+}
+
+.imagen-perdio img{
+  padding: 20px;
+  width: 150px;
+  height: 300px;
+}
+
+.reinicio button{
+  padding: 10px;
+  font-size: 1.2em;
+  margin: 10px;
+  background-color: #137586;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.avanzar button {
+  padding: 10px;
+  font-size: 1.2em;
+  margin: 10px;
+  background-color: #137586;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
