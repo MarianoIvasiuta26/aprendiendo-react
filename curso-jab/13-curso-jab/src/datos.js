@@ -1,4 +1,4 @@
-export const valores=[
+const valores=[
   { color:"#ea4335",
     desde:0,
     altura:52 },
@@ -14,3 +14,5 @@ export const valores=[
   { desde:0,
     altura:76 }      
 ]
+
+export default valores;
