@@ -11,8 +11,7 @@ const PalabrasProvider = ({children}) => {
     
 
     return (
-        <PalabrasContext.Provider value={{resultado, setResultado, nivel, setNivel, intento, setIntento, 
-                                        letrasPalabra, setLetrasPalabras, letrasIncorrectas, setLetrasIncorrectas}}>
+        <PalabrasContext.Provider value={{resultado, setResultado, nivel, setNivel, intento, setIntento, letrasPalabra, setLetrasPalabras, letrasIncorrectas, setLetrasIncorrectas}}>
             {children}
         </PalabrasContext.Provider>
     )
