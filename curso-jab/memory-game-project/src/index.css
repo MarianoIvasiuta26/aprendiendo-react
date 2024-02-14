@@ -1,0 +1,22 @@
+.cuadros{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.cuadro-individual{
+  width: 200px;
+  height: 220px;
+  border: 1px solid black;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: lightsalmon;
+}
+
+.cuadro-individual img{
+  width: 150px;
+  height: 150px;
+}

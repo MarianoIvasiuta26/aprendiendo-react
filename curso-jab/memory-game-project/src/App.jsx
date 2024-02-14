@@ -1,32 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useContext, useEffect, useState } from "react"
+import MemoryContext from "./context/MemoryContext"
+import cuadros from './components/datos'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const imagenesDuplicadas = [...cuadros, ...cuadros]
+  useEffect(()=> {
+    imagenesDuplicadas.sort(()=> Math.random() - 0.5);
+  }, [])
+
+  const {ganador, setGanador, intento, setIntento, aciertos, setAciertos} = useContext(MemoryContext);
+  const [datos, setDatos] = useState(imagenesDuplicadas);
+  
+  const [imagenesAcertadas, setImagenesAcertadas] = useState([]); //con esta guardaremos las imagenes acertadas y validaremos más adelante para que no se muestre dada vuelta
+
+  const [imagenesSeleccionadas, setImagenesSeleccionadas] = useState([]);
+
+  useEffect(()=> {
+    if(imagenesSeleccionadas.length === 2){
+      console.log(imagenesSeleccionadas);
+      console.log(imagenesDuplicadas[imagenesSeleccionadas[0]]);
+      console.log(imagenesDuplicadas[imagenesSeleccionadas[1]]);
+      setTimeout(() => {
+        if(imagenesDuplicadas[imagenesSeleccionadas[0]] === imagenesDuplicadas[imagenesSeleccionadas[1]]){
+          let imagenAcertada = imagenesDuplicadas[imagenesSeleccionadas[0]];
+          console.log(imagenAcertada)
+          setImagenesAcertadas([...imagenesAcertadas, imagenAcertada]);
+        }else{
+          setTimeout(() => {
+            setImagenesSeleccionadas([]);
+          }, 2000)
+        }
+      }, 2000)
+    }
+  })
+
+  const handleSeleccion = (index) => {
+    if(imagenesSeleccionadas.length === 2){
+      return;
+    }
+    const seleccionNueva = [...imagenesSeleccionadas, index];
+    setImagenesSeleccionadas(seleccionNueva);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="cuadros">
+        {
+          datos.map((cuadro, index) => (
+            <div key={index} className="cuadro-individual" onClick={() => handleSeleccion(index)}>
+              <img src={(imagenesAcertadas.includes(cuadro) || imagenesSeleccionadas.includes(index)) ? cuadro : "https://www.html6.es/img/rey_.png"} alt="" />            
+            </div>
+          ))
+        }
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }

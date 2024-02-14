@@ -1,4 +1,4 @@
-export const cuadros=[
+const cuadros=[
   "https://www.html6.es/img/rey_ervigio.png",
   "https://www.html6.es/img/rey_ataulfo.png",
   "https://www.html6.es/img/rey_atanagildo.png",
@@ -6,3 +6,5 @@ export const cuadros=[
   "https://www.html6.es/img/rey_sisebuto.png",
   "https://www.html6.es/img/rey_recesvinto.png"
 ]
+
+export default cuadros;
