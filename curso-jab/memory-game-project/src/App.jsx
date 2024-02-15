@@ -22,6 +22,7 @@ function App() {
       if(imagenesValidacion[0] === imagenesValidacion[1]){
         let imagenAcertada = imagenesValidacion[0];
         setImagenesAcertadas([...imagenesAcertadas, imagenAcertada]);
+        setAciertos(Number(aciertos + 1));
         setImagenesSeleccionadas([]);
         setImagenesValidacion([]);
       }else{
@@ -33,6 +34,12 @@ function App() {
     }
   })
 
+  useEffect(() => {
+    if(imagenesSeleccionadas.length === 2 && imagenesValidacion.length === 2){
+      setIntento(Number(intento + 1));
+    }
+  }, [imagenesSeleccionadas, imagenesValidacion])
+
   const handleSeleccion = (cuadro, index) => {
     if(imagenesSeleccionadas.length === 2){
       return;
@@ -41,9 +48,6 @@ function App() {
     setImagenesSeleccionadas(seleccionNueva);
     const validacion = [...imagenesValidacion, cuadro];
     setImagenesValidacion(validacion);
-
-    console.log(imagenesValidacion);
-    console.log(imagenesSeleccionadas);
   }
 
   return (
@@ -56,6 +60,10 @@ function App() {
             </div>
           ))
         }
+      </div>
+
+      <div className="info-intentos">
+        {aciertos} aciertos de {intento} intentos: {(aciertos === 0 && intento === 0) ? "" : `(${((aciertos/intento)*100).toFixed(0)} % de acierto)`}
       </div>
       
     </>
