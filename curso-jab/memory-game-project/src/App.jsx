@@ -15,32 +15,35 @@ function App() {
   const [imagenesAcertadas, setImagenesAcertadas] = useState([]); //con esta guardaremos las imagenes acertadas y validaremos más adelante para que no se muestre dada vuelta
 
   const [imagenesSeleccionadas, setImagenesSeleccionadas] = useState([]);
+  const [imagenesValidacion, setImagenesValidacion] = useState([]);
 
   useEffect(()=> {
-    if(imagenesSeleccionadas.length === 2){
-      console.log(imagenesSeleccionadas);
-      console.log(imagenesDuplicadas[imagenesSeleccionadas[0]]);
-      console.log(imagenesDuplicadas[imagenesSeleccionadas[1]]);
-      setTimeout(() => {
-        if(imagenesDuplicadas[imagenesSeleccionadas[0]] === imagenesDuplicadas[imagenesSeleccionadas[1]]){
-          let imagenAcertada = imagenesDuplicadas[imagenesSeleccionadas[0]];
-          console.log(imagenAcertada)
-          setImagenesAcertadas([...imagenesAcertadas, imagenAcertada]);
-        }else{
-          setTimeout(() => {
-            setImagenesSeleccionadas([]);
-          }, 2000)
-        }
-      }, 2000)
+    if(imagenesSeleccionadas.length === 2 && imagenesValidacion.length === 2){
+      if(imagenesValidacion[0] === imagenesValidacion[1]){
+        let imagenAcertada = imagenesValidacion[0];
+        setImagenesAcertadas([...imagenesAcertadas, imagenAcertada]);
+        setImagenesSeleccionadas([]);
+        setImagenesValidacion([]);
+      }else{
+        setTimeout(() => {
+          setImagenesSeleccionadas([]);
+          setImagenesValidacion([]);
+        }, 2000)
+      }
     }
   })
 
-  const handleSeleccion = (index) => {
+  const handleSeleccion = (cuadro, index) => {
     if(imagenesSeleccionadas.length === 2){
       return;
     }
     const seleccionNueva = [...imagenesSeleccionadas, index];
     setImagenesSeleccionadas(seleccionNueva);
+    const validacion = [...imagenesValidacion, cuadro];
+    setImagenesValidacion(validacion);
+
+    console.log(imagenesValidacion);
+    console.log(imagenesSeleccionadas);
   }
 
   return (
@@ -48,7 +51,7 @@ function App() {
       <div className="cuadros">
         {
           datos.map((cuadro, index) => (
-            <div key={index} className="cuadro-individual" onClick={() => handleSeleccion(index)}>
+            <div key={index} className="cuadro-individual" onClick={() => handleSeleccion(cuadro, index)}>
               <img src={(imagenesAcertadas.includes(cuadro) || imagenesSeleccionadas.includes(index)) ? cuadro : "https://www.html6.es/img/rey_.png"} alt="" />            
             </div>
           ))
