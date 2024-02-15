@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import MemoryContext from "./context/MemoryContext"
 import cuadros from './components/datos'
+import { useNavigate } from "react-router-dom"
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
 
   const [imagenesSeleccionadas, setImagenesSeleccionadas] = useState([]);
   const [imagenesValidacion, setImagenesValidacion] = useState([]);
-
+  const navegacion = useNavigate();
+  
   useEffect(()=> {
     if(imagenesSeleccionadas.length === 2 && imagenesValidacion.length === 2){
       if(imagenesValidacion[0] === imagenesValidacion[1]){
@@ -49,6 +51,18 @@ function App() {
     const validacion = [...imagenesValidacion, cuadro];
     setImagenesValidacion(validacion);
   }
+
+  useEffect(() => {
+    if(imagenesAcertadas.length === 6){
+      setGanador(true);
+    }
+  }, [imagenesAcertadas])
+
+  useEffect(() => {
+    if(ganador === true){
+      navegacion('/ganador')
+    }
+  }, [ganador])
 
   return (
     <>

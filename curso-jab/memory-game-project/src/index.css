@@ -25,3 +25,31 @@
   font-size: 1.5em;
   margin: 10px 20px;
 }
+
+.ganador{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.ganador h1{
+  font-size: 3em;
+  margin: 10px 0;
+}
+
+.ganador p{
+  font-size: 2em;
+  margin: 10px 0;
+}
+
+.ganador button{
+  font-size: 1.5em;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: lightsalmon;
+  border: 1px solid black;
+  cursor: pointer;
+}
