@@ -49,6 +49,8 @@ function App() {
     }
   }
 
+  productosSeleccionados.sort((a,b) => b.estrellas - a.estrellas);
+
   return (
     <>  
       <div className='container'>
